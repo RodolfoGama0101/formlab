@@ -1,0 +1,186 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <style>
+        :root {
+            --primary-color: #2563eb;
+            --primary-hover: #1d4ed8;
+            --success-color: #10b981;
+            --background: #f9fafb;
+            --card-bg: #ffffff;
+            --text-primary: #1f2937;
+            --text-secondary: #4b5563;
+            --border-color: #e5e7eb;
+            --shadow: 0 1px 3px rgba(0,0,0,0.1);
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            font-family: 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
+            background-color: transparent;
+            color: var(--text-primary);
+            line-height: 1.5;
+            padding: 0;
+            margin: 0;
+        }
+
+        .container {
+            width: 300px;
+            background-color: var(--card-bg);
+            box-shadow: var(--shadow);
+            overflow: hidden;
+        }
+
+        .header {
+            background-color: var(--primary-color);
+            color: white;
+            padding: 12px 16px;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .header h1 {
+            font-size: 1.5rem;
+            font-weight: 600;
+            margin: 0;
+        }
+        
+        .header img {
+            height: 24px;
+            width: auto;
+        }
+
+        .content {
+            padding: 16px;
+        }
+
+        .section {
+            margin-bottom: 16px;
+            padding-bottom: 16px;
+            border-bottom: 1px solid var(--border-color);
+        }
+
+        .section:last-child {
+            margin-bottom: 0;
+            padding-bottom: 0;
+            border-bottom: none;
+        }
+
+        .section-title {
+            font-size: 0.9rem;
+            font-weight: 600;
+            color: var(--text-secondary);
+            margin-bottom: 8px;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+
+        input {
+            width: 100%;
+            padding: 8px 12px;
+            border: 1px solid var(--border-color);
+            border-radius: 4px;
+            font-size: 0.95rem;
+            margin-bottom: 8px;
+            transition: border-color 0.2s ease;
+        }
+
+        input:focus {
+            outline: none;
+            border-color: var(--primary-color);
+            box-shadow: 0 0 0 2px rgba(37, 99, 235, 0.2);
+        }
+
+        .btns {
+            display: flex;
+            gap: 8px;
+        }
+
+        button {
+            padding: 8px 12px;
+            background-color: var(--primary-color);
+            color: white;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+            font-size: 0.85rem;
+            font-weight: 500;
+            flex: 1;
+            transition: background-color 0.2s ease;
+        }
+
+        button:hover {
+            background-color: var(--primary-hover);
+        }
+
+        .pop-up-copiado {
+            display: none;
+            background-color: var(--success-color);
+            color: white;
+            padding: 8px;
+            border-radius: 4px;
+            text-align: center;
+            margin-top: 8px;
+            font-size: 0.85rem;
+            animation: fadeIn 0.3s ease;
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(-5px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <img src="icons/icons8-form-50.png" alt="icon-form" width="30">
+            <h1>FormLab</h1>
+        </div>
+        <div class="content">
+            <div class="section cpf">
+                <h3 class="section-title">CPF</h3>
+                <input type="text" id="cpf" placeholder="CPF gerado" readonly />
+                <div class="btns">
+                    <button id="gerar-cpf">Gerar CPF</button>
+                </div>
+                <div class="pop-up-copiado" id="pop-up-cpf">
+                    CPF copiado!
+                </div>
+            </div>
+
+            <div class="section nome">
+                <h3 class="section-title">Nome</h3>
+                <input type="text" id="nome" placeholder="Nome gerado" readonly />
+                <div class="btns">
+                    <button type="button" id="gerar-nome">Nome</button>
+                    <button type="button" id="gerar-nome-sobrenome">Nome e Sobrenome</button>
+                </div>
+                <div class="pop-up-copiado" id="pop-up-nome">
+                    Nome copiado!
+                </div>
+            </div>
+
+            <div class="section telefone">
+                <h3 class="section-title">Telefone</h3>
+                <input type="text" id="telefone" placeholder="Telefone gerado" readonly />
+                <div class="btns">
+                    <button type="button" id="gerar-telefone">Telefone Fixo</button>
+                    <button type="button" id="gerar-telefone-celular">Celular</button>
+                </div>
+                <div class="pop-up-copiado" id="pop-up-telefone">
+                    Telefone copiado!
+                </div>
+            </div>
+        </div>
+    </div>
+    <script src="app.js"></script>
+</body>
+</html>
